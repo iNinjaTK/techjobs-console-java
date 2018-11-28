@@ -1,8 +1,11 @@
 package org.launchcode.techjobs.console;
 
+
+
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,6 +13,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by LaunchCode
@@ -42,7 +46,6 @@ public class JobData {
                 values.add(aValue);
             }
         }
-
         return values;
     }
 
@@ -83,6 +86,45 @@ public class JobData {
 
         return jobs;
     }
+
+
+
+//    findByValue function
+
+
+
+    public static ArrayList findByValue(String value) {
+
+        // load data, if not already loaded
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+
+            // Scan keyset for each column
+            Set<String> columnSet = row.keySet();
+
+            for (String column : columnSet) {
+
+                String aValue = row.get(column);
+
+                if (aValue.contains(value)) {
+                    jobs.add(row);
+                }
+            }
+        }
+
+
+        return jobs;
+    }
+
+
+
+//     end for findByValue function
+
+
+
 
     /**
      * Read in data from a CSV file and store it in a list
