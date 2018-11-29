@@ -69,7 +69,6 @@ public class TechJobs {
                     //ending find by value
 
 
-                    System.out.println("Search all fields not yet implemented.");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -132,6 +131,7 @@ public class TechJobs {
                 }
 
                 System.out.println("*****");
+                System.out.println(" ");
 
             }
 

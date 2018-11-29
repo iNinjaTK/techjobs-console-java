@@ -79,7 +79,10 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            String lower_value = value.toLowerCase();
+            String lower_aValue = aValue.toLowerCase();
+
+            if (lower_aValue.contains(lower_value)) {
                 jobs.add(row);
             }
         }
@@ -109,7 +112,10 @@ public class JobData {
 
                 String aValue = row.get(column);
 
-                if (aValue.contains(value)) {
+                String lower_value = value.toLowerCase();
+                String lower_aValue = aValue.toLowerCase();
+
+                if (lower_aValue.contains(lower_value)) {
                     jobs.add(row);
                 }
             }
